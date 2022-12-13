@@ -5,6 +5,7 @@ function App() {
 	const [count, setCount] = useState(0)
 	const incrCount = () => {
 		setCount(count + 1)
+		console.log(count)
 	}
 	const decrCount = () => {
 		setCount(count - 1)

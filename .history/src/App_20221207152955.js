@@ -2,7 +2,7 @@ import {useState} from 'react'
 import './index.scss'
 
 function App() {
-	const [count, setCount] = useState(0)
+	const [count, setCount] = useState(15)
 	const incrCount = () => {
 		setCount(count + 1)
 	}
