@@ -77,7 +77,7 @@ function App() {
 					onClickVariant={onClickVariant}
 					question={question}
 					step={step}
-				/> : <Result playAgain={playAgain}/> }
+				/> : <Result layAgain={playAgain}/> }
 		</div>
 	)
 }

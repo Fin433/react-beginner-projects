@@ -27,7 +27,7 @@ const questions = [
 	},
 ]
 
-function Result({playAgain}) {
+function Result({playAgain, step}) {
 	return (
 		<div className="result">
 			<img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" />
@@ -77,7 +77,7 @@ function App() {
 					onClickVariant={onClickVariant}
 					question={question}
 					step={step}
-				/> : <Result playAgain={playAgain}/> }
+				/> : <Result step={step} playAgain={playAgain}/> }
 		</div>
 	)
 }
