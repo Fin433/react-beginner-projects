@@ -28,18 +28,19 @@ const questions = [
 ]
 
 function Result({playAgain, correct}) {
+
 	return (
 		<div className="result">
 			<img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" />
 			<h2>Вы отгадали {correct} ответа из {questions.length}</h2>
-			<button onClick={playAgain}>Попробовать снова</button>
+			<button onClick={() =>playAgain}>Попробовать снова</button>
 		</div>
 	)
 }
 
 function Game({ question, onClickVariant, step }) {
 	const part = Math.round((step / questions.length * 100))
-	// console.log(part)
+	console.log(part)
 
 	return (
 		<>
@@ -62,18 +63,16 @@ function App() {
 	const question = questions[step]
 
 	const onClickVariant = (index) => {
-		// console.log(step, index)
-		console.log(correct)
+		console.log(step, index)
 		setStep(step + 1)
 
-		if (index === question.correct) {
+		if (index == questions.correct) {
 			setCorrect(correct + 1)
 		}
 	}
 
 	const playAgain = () => {
 		setStep(0)
-		setCorrect(0)
 	}
 
 	return (

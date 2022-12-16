@@ -73,7 +73,6 @@ function App() {
 
 	const playAgain = () => {
 		setStep(0)
-		setCorrect(0)
 	}
 
 	return (

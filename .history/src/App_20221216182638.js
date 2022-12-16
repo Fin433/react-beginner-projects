@@ -64,6 +64,7 @@ function App() {
 	const onClickVariant = (index) => {
 		// console.log(step, index)
 		console.log(correct)
+
 		setStep(step + 1)
 
 		if (index === question.correct) {
@@ -73,7 +74,6 @@ function App() {
 
 	const playAgain = () => {
 		setStep(0)
-		setCorrect(0)
 	}
 
 	return (

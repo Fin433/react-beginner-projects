@@ -27,11 +27,11 @@ const questions = [
 	},
 ]
 
-function Result({playAgain, correct}) {
+function Result({playAgain}) {
 	return (
 		<div className="result">
 			<img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" />
-			<h2>Вы отгадали {correct} ответа из {questions.length}</h2>
+			<h2>Вы отгадали 3 ответа из 10</h2>
 			<button onClick={playAgain}>Попробовать снова</button>
 		</div>
 	)
@@ -39,7 +39,7 @@ function Result({playAgain, correct}) {
 
 function Game({ question, onClickVariant, step }) {
 	const part = Math.round((step / questions.length * 100))
-	// console.log(part)
+	console.log(part)
 
 	return (
 		<>
@@ -48,7 +48,7 @@ function Game({ question, onClickVariant, step }) {
 			</div>
 			<h1>{question.title}</h1>
 			<ul>
-				{question.variants.map((variant, index, correct) => (
+				{question.variants.map((variant, index) => (
 					<li onClick={() => onClickVariant(index)} key={variant}>{variant}</li>
 				))}
 			</ul>
@@ -62,18 +62,16 @@ function App() {
 	const question = questions[step]
 
 	const onClickVariant = (index) => {
-		// console.log(step, index)
-		console.log(correct)
+		console.log(step, index)
 		setStep(step + 1)
 
-		if (index === question.correct) {
+		if (index === questions.correct) {
 			setCorrect(correct + 1)
 		}
 	}
 
 	const playAgain = () => {
 		setStep(0)
-		setCorrect(0)
 	}
 
 	return (
@@ -84,8 +82,7 @@ function App() {
 					onClickVariant={onClickVariant}
 					question={question}
 					step={step}
-					correct={correct}
-				/> : <Result playAgain={playAgain} correct={correct}/> }
+				/> : <Result playAgain={playAgain}/> }
 		</div>
 	)
 }
